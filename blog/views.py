@@ -1,3 +1,5 @@
+# coding:utf-8
+__author__ = 'wduestc'
 from django.shortcuts import render
 from django.http import HttpResponse
 
