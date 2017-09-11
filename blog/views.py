@@ -24,15 +24,13 @@ def edit_page(request, article_id):
         return render(request, 'blog/edit_page.html', {'article':article})
 
 def edit_action(request):
-    flag = request.POST.get('flag', '0')
-    if flag == '0':
+    id = request.POST.get('id', '0')
+    if id == '0':
       title = request.POST.get('title', 'TITLE')
       content = request.POST.get('content', 'CONTENT')
       models.Article.objects.create(title=title, content=content)
       articles = models.Article.objects.all()
-    elif flag == '1':
-      #edit article
-      id = request.POST.get('id', '0')
+    else:
       title = request.POST.get('title', 'TITLE')
       content = request.POST.get('content', 'CONTENT')
       article = models.Article.objects.get(pk=id)
